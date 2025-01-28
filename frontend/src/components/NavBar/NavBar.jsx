@@ -13,26 +13,26 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav className="NavBar">
-      <NavLink to="/">Home</NavLink>
-      &nbsp; | &nbsp;
+      <NavLink to="/">Where are we?</NavLink>
+      &nbsp;
       {user ? (
         <>
-          <NavLink to="/posts" end>
-            Post List
+          <NavLink to="/moonwalks" end>
+            Community
           </NavLink>
-          &nbsp; | &nbsp;
-          <NavLink to="/posts/new">New Post</NavLink>
+          &nbsp;
+          <NavLink to="/moonwalks/new">Add Moonwalk</NavLink>
           &nbsp; | &nbsp;
           <Link to="" onClick={handleLogOut}>
             Log Out
           </Link>
-          &nbsp; | &nbsp;
+          &nbsp;
           <span>Welcome, {user.name}</span>
         </>
       ) : (
         <>
           <NavLink to="/login">Log In</NavLink>
-          &nbsp; | &nbsp;
+          &nbsp;
           <NavLink to="/signup">Sign Up</NavLink>
         </>
       )}
