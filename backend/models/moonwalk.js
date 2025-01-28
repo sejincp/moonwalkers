@@ -3,12 +3,14 @@ const Schema = mongoose.Schema;
 
 const moonwalkSchema = new Schema(
   {
-    content: { type: String, required: true },
     user: {
       type: Schema.Types.ObjectId,
       required: true,
       ref: 'User'
     },
+    steps: { type: Number, required: true },
+    usercomment: { type: String, required: true },
+    comments: { type: String, required: true }
   },
   {
     timestamps: true,

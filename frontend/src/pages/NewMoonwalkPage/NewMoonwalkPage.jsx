@@ -4,7 +4,6 @@ import * as moonwalkService from '../../services/moonwalkService';
 
 export default function NewMoonwalkPage() {
   const [content, setContent] = useState({
-    date: new Date().toLocaleDateString().slice(10,0),
     steps: 0,
     comment: ''
   });
@@ -43,13 +42,6 @@ export default function NewMoonwalkPage() {
     <>
       <h2>Add New Moonwalk</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
-      <label>Date</label>
-        <input
-          type="date"
-          value={content.date}
-          onChange={handleChange}
-          required
-        />
       <label>Total Steps</label>
         <input
           type="number"
