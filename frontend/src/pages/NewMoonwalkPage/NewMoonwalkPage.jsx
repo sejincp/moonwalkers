@@ -47,6 +47,8 @@ export default function NewMoonwalkPage() {
           onChange={handleChange}
           required
         />
+        <label>Date</label>
+        <label>{new Date().toLocaleDateString()}</label>
         <button type="submit">Add Moonwalk</button>
       </form>
     </>
