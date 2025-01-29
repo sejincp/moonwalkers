@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router';
 import { getUser } from '../../services/authService';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
+import MoonwalkDetailPage from '../MoonwalkDetailPage/MoonwalkDetailPage';
 import MoonwalkListPage from '../MoonwalkListPage/MoonwalkListPage';
 import NewMoonwalkPage from '../NewMoonwalkPage/NewMoonwalkPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
@@ -20,6 +21,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/moonwalks" element={<MoonwalkListPage />} />
+            <Route path="/moonwalks/:moonwalkId" element={<MoonwalkDetailPage />} />
             <Route path="/moonwalks/new" element={<NewMoonwalkPage />} />
           </Routes>
         ) : (

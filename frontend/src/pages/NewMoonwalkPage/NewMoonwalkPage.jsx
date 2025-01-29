@@ -5,7 +5,7 @@ import * as moonwalkService from '../../services/moonwalkService';
 export default function NewMoonwalkPage() {
   const [content, setContent] = useState({
     steps: 0,
-    comment: ''
+    description: ''
   });
 
   const [miles, setMiles] = useState(0);
@@ -24,14 +24,14 @@ export default function NewMoonwalkPage() {
     };
     setContent({
       ...content,
-      [name]: value
+      [name]: name === 'steps' ? Number(value) : value
     });
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const post = await moonwalkService.create(content);
+      const moonwalk = await moonwalkService.create(content);
       navigate('/moonwalks');
     } catch (err) {
       console.log(err);
@@ -45,14 +45,16 @@ export default function NewMoonwalkPage() {
       <label>Total Steps</label>
         <input
           type="number"
+          name="steps"
           value={content.steps}
           onChange={handleChange}
           required
         />
-        <label>Comment</label>
+        <label>Description</label>
         <input
           type="text"
-          value={content.comment}
+          name="description"
+          value={content.description}
           onChange={handleChange}
           required
         />

@@ -1,6 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const stepSchema = new Schema(
+  {
+    stepCount: { type: Number, min: 0, max: 50000, required: true },
+    date: { type: Date, required: true },
+    user: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'User'
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
 const moonwalkSchema = new Schema(
   {
     user: {
@@ -8,8 +23,8 @@ const moonwalkSchema = new Schema(
       required: true,
       ref: 'User'
     },
-    steps: { type: Number, required: true },
-    usercomment: { type: String, required: true },
+    steps: [stepSchema],
+    description: { type: String, required: true },
     comments: { type: String, required: true }
   },
   {
