@@ -24,8 +24,8 @@ const moonwalkSchema = new Schema(
       ref: 'User'
     },
     steps: [stepSchema],
+    distance: { type: Number },
     description: { type: String, required: true },
-    comments: { type: String, required: true }
   },
   {
     timestamps: true,

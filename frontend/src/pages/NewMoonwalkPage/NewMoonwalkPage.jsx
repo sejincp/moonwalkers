@@ -3,35 +3,24 @@ import { useNavigate } from 'react-router';
 import * as moonwalkService from '../../services/moonwalkService';
 
 export default function NewMoonwalkPage() {
-  const [content, setContent] = useState({
-    steps: 0,
-    description: ''
+  const [moonwalkData, setMoonwalkData] = useState({
+    distance: '',
+    description: '',
   });
-
-  const [miles, setMiles] = useState(0);
 
   const navigate = useNavigate();
   
   const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    if ( name === 'steps' ) {
-      const steps = Number(value);
-      if (!isNaN(steps)) {
-        setMiles((steps / 2000).toFixed(2));
-      } else {
-        setMiles(0);
-      }
-    };
-    setContent({
-      ...content,
-      [name]: name === 'steps' ? Number(value) : value
+    setMoonwalkData({
+      ...moonwalkData,
+      [evt.target.name]: evt.target.value,
     });
-  }
+  };
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const moonwalk = await moonwalkService.create(content);
+      const moonwalk = await moonwalkService.create(moonwalkData);
       navigate('/moonwalks');
     } catch (err) {
       console.log(err);
@@ -42,11 +31,11 @@ export default function NewMoonwalkPage() {
     <>
       <h2>Add New Moonwalk</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
-      <label>Total Steps</label>
+        <label>Total Steps</label>
         <input
           type="number"
-          name="steps"
-          value={content.steps}
+          name="distance"
+          value={moonwalkData.distance}
           onChange={handleChange}
           required
         />
@@ -54,7 +43,7 @@ export default function NewMoonwalkPage() {
         <input
           type="text"
           name="description"
-          value={content.description}
+          value={moonwalkData.description}
           onChange={handleChange}
           required
         />
