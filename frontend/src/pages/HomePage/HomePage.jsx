@@ -26,6 +26,7 @@ export default function HomePage() {
         {moonwalks.map((moonwalk) => (
           <MoonwalkItem key={moonwalk._id} moonwalk={moonwalk} />
         ))}
+
         </div>
       </section>
     </>

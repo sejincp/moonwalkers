@@ -16,6 +16,22 @@ const stepSchema = new Schema(
   }
 );
 
+const commentSchema = new Schema(
+  {
+    text: {
+      type: String,
+      required: true,
+    },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  },
+  {
+    timestamps: true,
+  }
+);
+
 const moonwalkSchema = new Schema(
   {
     user: {
@@ -26,6 +42,7 @@ const moonwalkSchema = new Schema(
     steps: [stepSchema],
     distance: { type: Number },
     description: { type: String, required: true },
+    comments: [commentSchema]
   },
   {
     timestamps: true,
