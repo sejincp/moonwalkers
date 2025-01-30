@@ -3,7 +3,7 @@ import * as moonwalkService from '../../services/moonwalkService';
 import './MoonwalkListPage.css';
 import MoonwalkItem from '../../components/MoonwalkItem/MoonwalkItem';
 
-export default function MoonwalkListPage() {
+export default function MoonwalkListPage({user}) {
   const [moonwalks, setMoonwalks] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export default function MoonwalkListPage() {
   const handleDeleteMoonwalk = async (id) => {
     try {
       await moonwalkService.deleteMoonwalk(id);
+      setMoonwalks(moonwalks.filter((mw) => mw._id !== id));
     } catch (err) {
       console.error('Failed to delete moonwalk', err);
     }
@@ -29,6 +30,7 @@ export default function MoonwalkListPage() {
         {moonwalks.map((moonwalk) => (
           <MoonwalkItem
             key={moonwalk._id}
+            user={user}
             moonwalk={moonwalk}
             moonwalks={moonwalks}
             setMoonwalks={setMoonwalks}

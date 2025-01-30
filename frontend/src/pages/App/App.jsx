@@ -20,8 +20,7 @@ export default function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/moonwalks" element={<MoonwalkListPage />} />
-            <Route path="/moonwalks/:moonwalkId" element={<MoonwalkDetail />} />
+            <Route path="/moonwalks" element={<MoonwalkListPage user={user} />} />
             <Route path="/moonwalks/new" element={<NewMoonwalkPage />} />
           </Routes>
         ) : (

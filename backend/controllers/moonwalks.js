@@ -25,14 +25,7 @@ async function create(req, res) {
 // DELETE
 async function deleteMoonwalk(req, res) {
   try {
-    const moonwalk = await Moonwalk.findById(req.params.id);
-    if (!moonwalk) return res.status(404).json({ error: 'Moonwalk not found' });
-
-    if (moonwalk.user.toString() !== req.user._id) {
-      return res.status(403).json({ error: 'Unauthorized' });
-    }
-
-    await Moonwalk.findByIdAndDelete(req.params.id);
+    await Moonwalk.findOneAndDelete({_id: req.params.id, user: req.user._id});
     res.json({ message: 'Moonwalk deleted' });
   } catch (err) {
     console.error(err);

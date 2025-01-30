@@ -11,7 +11,7 @@ export async function create(content) {
 }
 
 export async function deleteMoonwalk(moonwalkId) {
-  return sendRequest(`${BASE_URL}/${moonwalkId}`, 'DELETE', moonwalkId);
+  return sendRequest(`${BASE_URL}/${moonwalkId}`, 'DELETE');
 }
 
 // comments

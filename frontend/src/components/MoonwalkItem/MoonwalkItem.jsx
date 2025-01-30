@@ -4,6 +4,7 @@ import CommentForm from '../CommentForm/CommentForm';
 import * as moonwalkService from '../../services/moonwalkService';
 
 export default function MoonwalkItem({
+  user,
   moonwalk,
   moonwalks,
   setMoonwalks,
@@ -86,7 +87,7 @@ export default function MoonwalkItem({
       </p>
 
       <div className={hideComments ? 'hidden' : ''}>
-        <button onClick={() => handleDelete()}>🗑️ Delete Moonwalk</button>
+        {user._id === moonwalk.user._id && <button onClick={() => handleDelete()}>🗑️ Delete Moonwalk</button>}
         <hr />
         <section>
           <h2>Comments</h2>
