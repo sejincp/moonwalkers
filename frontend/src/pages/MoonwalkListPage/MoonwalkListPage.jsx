@@ -14,12 +14,28 @@ export default function MoonwalkListPage() {
     fetchMoonwalks();
   }, []);
 
-  const moonwalkItems = moonwalks.map((p) => <MoonwalkItem key={p._id} moonwalk={p} />);
+  const handleDeleteMoonwalk = async (id) => {
+    try {
+      await moonwalkService.deleteMoonwalk(id);
+    } catch (err) {
+      console.error('Failed to delete moonwalk', err);
+    }
+  };
 
   return (
     <>
       <h1>Community (Moonwalk List)</h1>
-      <section className="moonwalk-item-container">{moonwalkItems}</section>
+      <section className="moonwalk-item-container">
+        {moonwalks.map((moonwalk) => (
+          <MoonwalkItem
+            key={moonwalk._id}
+            moonwalk={moonwalk}
+            moonwalks={moonwalks}
+            setMoonwalks={setMoonwalks}
+            onDelete={handleDeleteMoonwalk}
+          />
+        ))}
+      </section>
     </>
   );
 }

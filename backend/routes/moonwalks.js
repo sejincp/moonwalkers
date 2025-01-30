@@ -8,5 +8,10 @@ const moonwalksCtrl = require('../controllers/moonwalks');
 router.post('/', moonwalksCtrl.create);
 // GET /api/moonwalks
 router.get('/', moonwalksCtrl.index);
+// DELETE /api/moonwalks
+router.delete('/', moonwalksCtrl.delete);
+// POST /api/moonwalks/:moonwalkId/comments
+router.post('/:moonwalkId/comments', moonwalksCtrl.createComment);
+
 
 module.exports = router;
