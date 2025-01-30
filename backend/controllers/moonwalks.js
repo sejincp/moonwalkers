@@ -8,7 +8,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const moonwalks = await Moonwalk.find({}).populate('user').sort('-createdAt');
+  const moonwalks = await Moonwalk.find({}).populate('user').populate('comments.author').sort('-createdAt');
   res.json(moonwalks);
 }
 
@@ -22,7 +22,7 @@ async function create(req, res) {
     res.status(400).json({ message: 'Create moonwalk Failed' });
   }
 }
-
+// DELETE
 async function deleteMoonwalk(req, res) {
   try {
     const moonwalk = await Moonwalk.findById(req.params.id);

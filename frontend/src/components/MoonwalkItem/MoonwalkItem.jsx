@@ -86,7 +86,7 @@ export default function MoonwalkItem({
       </p>
 
       <div className={hideComments ? 'hidden' : ''}>
-        <button onClick={handleDelete}>🗑️ Delete Moonwalk</button>
+        <button onClick={() => handleDelete()}>🗑️ Delete Moonwalk</button>
         <hr />
         <section>
           <h2>Comments</h2>

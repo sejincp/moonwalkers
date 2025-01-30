@@ -10,10 +10,8 @@ export async function create(content) {
   return sendRequest(BASE_URL, 'POST', content);
 }
 
-export async function deleteMoonwalk(id) {
-  const url = `${BASE_URL}/${id}`;
-  console.log("Deleting from URL:", url);
-  return sendRequest(url, 'DELETE');
+export async function deleteMoonwalk(moonwalkId) {
+  return sendRequest(`${BASE_URL}/${moonwalkId}`, 'DELETE', moonwalkId);
 }
 
 // comments

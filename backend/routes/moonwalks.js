@@ -6,10 +6,13 @@ const moonwalksCtrl = require('../controllers/moonwalks');
 
 // POST /api/moonwalks
 router.post('/', moonwalksCtrl.create);
+
 // GET /api/moonwalks
 router.get('/', moonwalksCtrl.index);
-// DELETE /api/moonwalks
-router.delete('/', moonwalksCtrl.delete);
+
+// DELETE /api/moonwalks/:moonwalkId
+router.delete('/:moonwalkId', moonwalksCtrl.delete);
+
 // POST /api/moonwalks/:moonwalkId/comments
 router.post('/:moonwalkId/comments', moonwalksCtrl.createComment);
 

@@ -15,12 +15,14 @@ export default function HomePage() {
     fetchMoonwalks();
   }, []);
 
+  const GOAL_STEPS = 500000000;
+
   return (
     <>
       <h5>“We crossed the USA! 🌎 (3,000 miles achieved!)”</h5>
       <h1>Now *13%* Reached</h1>
       <span>
-        *3,010.14* / *238,900* Miles | *6,300,000* / *500,000,000* Steps
+        *3,010.14* / *238,900* Miles | 'totalsteps so far' / {GOAL_STEPS} Steps
       </span>
       <Link to="/moonwalks/new">
         <button>Add my Moonwalk</button>
