@@ -3,6 +3,7 @@ import * as moonwalkService from '../../services/moonwalkService';
 import './HomePage.css';
 import MoonwalkItem from '../../components/MoonwalkItem/MoonwalkItem';
 import { Link } from 'react-router';
+import NewMoonwalkPage from '../NewMoonwalkPage/NewMoonwalkPage';
 
 export default function HomePage() {
   const [moonwalks, setMoonwalks] = useState([]);
@@ -15,14 +16,19 @@ export default function HomePage() {
     fetchMoonwalks();
   }, []);
 
+  // Milestones
   const GOAL_STEPS = 500000000;
+  const GOAL_MILES = GOAL_STEPS * 0.004;
+  const CURRENT_STEPS = 33500;
+  const CURRENT_MILES = CURRENT_STEPS * 0.004;
+  
 
   return (
     <>
       <h5>“We crossed the USA! 🌎 (3,000 miles achieved!)”</h5>
-      <h1>Now *13%* Reached</h1>
+      <h1>Now {((CURRENT_MILES / GOAL_MILES) * 100).toFixed(1)}% Reached</h1>
       <span>
-        *3,010.14* / *238,900* Miles | 'totalsteps so far' / {GOAL_STEPS} Steps
+      {CURRENT_MILES} / {GOAL_MILES} Miles | {CURRENT_STEPS} / {GOAL_STEPS} Steps
       </span>
       <Link to="/moonwalks/new">
         <button>Add my Moonwalk</button>

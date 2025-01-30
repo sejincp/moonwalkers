@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router';
 import { getUser } from '../../services/authService';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
-import MoonwalkDetail from '../../components/MoonwalkDetail/MoonwalkDetail';
 import MoonwalkListPage from '../MoonwalkListPage/MoonwalkListPage';
 import NewMoonwalkPage from '../NewMoonwalkPage/NewMoonwalkPage';
 import SignUpPage from '../SignUpPage/SignUpPage';

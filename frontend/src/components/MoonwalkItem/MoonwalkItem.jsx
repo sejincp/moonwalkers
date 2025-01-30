@@ -9,8 +9,6 @@ export default function MoonwalkItem({
   moonwalks,
   setMoonwalks,
   hideComments = false,
-  // commentSubmit,
-  // commentDelete,
   onDelete,
 }) {
   
@@ -28,33 +26,9 @@ export default function MoonwalkItem({
     }
   };
 
-  // const handleCommentChange = (evt) => {
-  //   setCommentText(evt.target.value);
-  // };
-
-  // const handleCommentSubmit = async (evt) => {
-  //   evt.preventDefault();
-  //   if (!commentText.trim()) return;
-
-  //   try {
-  //     await commentSubmit(moonwalk._id, commentText);
-  //     setCommentText('');
-  //   } catch (err) {
-  //     console.error('Failed to submit comment:', err);
-  //   }
-  // };
-
-  // const handleCommentDelete = async (commentId) => {
-  //   try {
-  //     await commentDelete(moonwalk._id, commentId);
-  //   } catch (err) {
-  //     console.error('Failed to delete comment:', err);
-  //   }
-  // };
-
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
-      'Are you sure you want to delete this Moonwalk?'
+      'Are you sure you want to delete this?'
     );
     if (!confirmDelete) return;
 
@@ -65,23 +39,26 @@ export default function MoonwalkItem({
     }
   };
 
+  // Steps calculate
   if (!moonwalk) return null;
 
   const totalStepsSoFar = moonwalk.steps.reduce(
     (total, step) => total + step.stepCount,
     0
   );
+  const overallProgress = (`(${((totalStepsSoFar / moonwalk.distance) * 100).toFixed(1)}%)`);
+
 
   return (
     <article>
       <h4>
-        🌝 {moonwalk.user.name} made {moonwalk.distance} Moonwalks
+        🌝 {moonwalk.user.name} made {moonwalk.steps} Moonwalks
       </h4>
       <p>
         <strong>Description:</strong> {moonwalk.description}
       </p>
       <p>
-        {`Currently ${totalStepsSoFar} (${((totalStepsSoFar / GOAL_STEPS) * 100).toFixed(1)}%) steps toward goal of ${GOAL_STEPS}`}
+        {overallProgress}
       </p>
       <p>
         <strong>Date:</strong>{' '}
@@ -96,13 +73,12 @@ export default function MoonwalkItem({
           <CommentForm handleAddComment={handleAddComment}/>
           {moonwalk.comments.map((comment) => (
             <article key={comment._id}>
-              <header>
                 <p>
-                  {`${comment.author.name} posted on
+                  {`${comment.author.name} commented on
                 ${new Date(comment.createdAt).toLocaleDateString()}`}
                 </p>
-              </header>
               <p>{comment.text}</p>
+              {user._id === moonwalk.user._id && <button onClick={() => handleDelete()}>🗑️ Delete comment</button>}
             </article>
           ))}
           {!moonwalk.comments.length && <p>There are no comments.</p>}

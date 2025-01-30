@@ -7,11 +7,13 @@ module.exports = {
   delete: deleteMoonwalk,
 };
 
+// INDEX
 async function index(req, res) {
   const moonwalks = await Moonwalk.find({}).populate('user').populate('comments.author').sort('-createdAt');
   res.json(moonwalks);
 }
 
+// CREATE
 async function create(req, res) {
   try {
     req.body.user = req.user._id;
@@ -25,7 +27,7 @@ async function create(req, res) {
 // DELETE
 async function deleteMoonwalk(req, res) {
   try {
-    await Moonwalk.findOneAndDelete({_id: req.params.id, user: req.user._id});
+    await Moonwalk.findOneAndDelete({_id: req.params.moonwalkId, user: req.user._id});
     res.json({ message: 'Moonwalk deleted' });
   } catch (err) {
     console.error(err);
@@ -33,6 +35,7 @@ async function deleteMoonwalk(req, res) {
   }
 }
 
+// CREATE comment
 async function createComment(req, res) {
   const moonwalk = await Moonwalk.findById(req.params.moonwalkId).populate('user').sort('-createdAt');
   req.body.author = req.user._id;
