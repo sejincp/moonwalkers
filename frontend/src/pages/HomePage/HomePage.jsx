@@ -19,16 +19,20 @@ export default function HomePage() {
   // Milestones
   const GOAL_STEPS = 500000000;
   const GOAL_MILES = GOAL_STEPS * 0.004;
-  const CURRENT_STEPS = 33500;
-  const CURRENT_MILES = CURRENT_STEPS * 0.004;
   
+  const totalStepsSoFar = moonwalks.reduce(
+    (total, mw) => total + mw.distance,
+    0
+  );
+  const CURRENT_MILES = totalStepsSoFar * 0.004;
+  const overallProgress = `${((totalStepsSoFar / GOAL_STEPS) * 100).toFixed(3)}%`;
 
   return (
     <>
       <h5>“We crossed the USA! 🌎 (3,000 miles achieved!)”</h5>
-      <h1>Now {((CURRENT_MILES / GOAL_MILES) * 100).toFixed(1)}% Reached</h1>
+      <h1>Now {overallProgress} Reached</h1>
       <span>
-      {CURRENT_MILES} / {GOAL_MILES} Miles | {CURRENT_STEPS} / {GOAL_STEPS} Steps
+      {CURRENT_MILES} / {GOAL_MILES} Miles | {totalStepsSoFar} / {GOAL_STEPS} Steps
       </span>
       <Link to="/moonwalks/new">
         <button>Add my Moonwalk</button>

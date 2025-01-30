@@ -39,15 +39,7 @@ export default function MoonwalkItem({
     }
   };
 
-  // Steps calculate
   if (!moonwalk) return null;
-
-  const totalStepsSoFar = moonwalk.steps.reduce(
-    (total, step) => total + step.stepCount,
-    0
-  );
-  const overallProgress = (`(${((totalStepsSoFar / moonwalk.distance) * 100).toFixed(1)}%)`);
-
 
   return (
     <article>
@@ -56,9 +48,6 @@ export default function MoonwalkItem({
       </h4>
       <p>
         <strong>Description:</strong> {moonwalk.description}
-      </p>
-      <p>
-        {overallProgress}
       </p>
       <p>
         <strong>Date:</strong>{' '}
