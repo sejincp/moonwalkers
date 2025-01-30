@@ -1,5 +1,5 @@
 import './MoonwalkItem.css';
-import { useState } from 'react';
+import { useLocation } from 'react-router';
 import CommentForm from '../CommentForm/CommentForm';
 import * as moonwalkService from '../../services/moonwalkService';
 
@@ -14,6 +14,8 @@ export default function MoonwalkItem({
   onDelete,
 }) {
   
+  const location = useLocation();
+  console.log(location);
   const GOAL_STEPS = 500000000;
   
   const handleAddComment = async (commentFormData) => {
@@ -86,7 +88,7 @@ export default function MoonwalkItem({
         {new Date(moonwalk.createdAt).toLocaleDateString()}
       </p>
 
-      <div className={hideComments ? 'hidden' : ''}>
+      {location.pathname !== '/' && <div className={hideComments ? 'hidden' : ''}>
         {user._id === moonwalk.user._id && <button onClick={() => handleDelete()}>🗑️ Delete Moonwalk</button>}
         <hr />
         <section>
@@ -105,7 +107,7 @@ export default function MoonwalkItem({
           ))}
           {!moonwalk.comments.length && <p>There are no comments.</p>}
         </section>
-      </div>
+      </div> }
     </article>
   );
 }
