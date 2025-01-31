@@ -6,7 +6,7 @@ export default function Footer({ user, setUser }) {
       <nav className="Footer">
         <div className="footer-logo-container">
           <img
-            src="../../public/logo-ico-moonwalkers.png"
+            src="/logo-ico-moonwalkers.png"
             alt="moonwalkers-logo-ico"
             className="footer-logo"
           />

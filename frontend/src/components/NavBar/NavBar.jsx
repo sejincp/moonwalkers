@@ -17,7 +17,7 @@ export default function NavBar({ user, setUser }) {
       <div className="nav-logo-container">
         <Link to="/">
           <img
-            src="../../public/logo-full-moonwalkers.png"
+            src="/logo-full-moonwalkers.png"
             alt="moonwalkers-logo"
             className="nav-logo"
           />
