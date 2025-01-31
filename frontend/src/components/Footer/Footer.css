@@ -1,29 +1,12 @@
 .Footer {
+  padding: 2rem;
   margin-top: auto;
   margin-bottom: 0;
-  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.NavBar {
-  a {
-    border-radius: 0.8vmin;
-    padding: 0.5vmin 1.5vmin;
-    text-decoration: none;
-    color: #8BFF5D;
-    transition: all .2s ease-in;
-  }
-
-  a:hover {
-    background-color: #8BFF5D;
-    color: #333;
-  }
-
-  a.active {
-    background-color: #8BFF5D;
-    color: #333;
-  }
-
-  span {
-    color: #8BFF5D;
-  }
+.footer-logo-container .footer-logo {
+  width: 5rem;
 }

@@ -1,41 +1,19 @@
-import { NavLink, Link, useNavigate } from 'react-router';
-import { logOut } from '../../services/authService';
 import './Footer.css';
 
-export default function Footerf({ user, setUser }) {
-  const navigate = useNavigate();
-
-  function handleLogOut() {
-    logOut();
-    setUser(null);
-    navigate('/');
-  }
-
+export default function Footer({ user, setUser }) {
   return (
-    <nav className="Footerf">
-      <NavLink to="/">Where are we?</NavLink>
-      &nbsp;
-      {user ? (
-        <>
-          <NavLink to="/moonwalks" end>
-            Community
-          </NavLink>
-          &nbsp;
-          <NavLink to="/moonwalks/new">Add Moonwalk</NavLink>
-          &nbsp; | &nbsp;
-          <Link to="" onClick={handleLogOut}>
-            Log Out
-          </Link>
-          &nbsp;
-          <span>Welcome, {user.name}</span>
-        </>
-      ) : (
-        <>
-          <NavLink to="/login">Log In</NavLink>
-          &nbsp;
-          <NavLink to="/signup">Sign Up</NavLink>
-        </>
-      )}
-    </nav>
+    <>
+      <nav className="Footer">
+        <div className="footer-logo-container">
+          <img
+            src="../../public/logo-ico-moonwalkers.png"
+            alt="moonwalkers-logo-ico"
+            className="footer-logo"
+          />
+        </div>
+        <br />
+        <p>Sejin &copy;</p>
+      </nav>
+    </>
   );
 }

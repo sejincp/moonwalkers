@@ -18,7 +18,7 @@ export default function HomePage() {
 
   // Milestones
 
-  // Where are we?
+  // Where are we
   const GOAL_STEPS = 500000000;
   const GOAL_MILES = GOAL_STEPS * 0.004;
 
@@ -34,7 +34,9 @@ export default function HomePage() {
   return (
     <>
       <section className="where-are-we">
-        <h5>“We crossed the USA! 🌎 (3,000 miles achieved!)”</h5>
+        <div className="milestone">
+          <h5>“We crossed the USA! 🌎 (3,000 miles achieved!)”</h5>
+        </div>
         <h1>Now {overallProgress} Reached</h1>
         <span>
           {CURRENT_MILES} / {GOAL_MILES} Miles | {totalStepsSoFar} /{' '}
