@@ -1,10 +1,23 @@
 .moonwalk-item-container {
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem 0 8rem 0;
 }
 
 .moonwalk-item-container > article {
-  border: 0.5vmin dashed rebeccapurple;
-  padding: 8vmin;
-  border-radius: 0.5vmin;
+  padding: 1rem;
+  display: flex;
+  width: 800px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1.2rem 0.2rem 0;
+  border-radius: 0.8vmin;
+  border: 1px solid #8BFF5D;
+}
+
+.moonwalk-item-container > article div {
+  padding: 1rem;
+
 }

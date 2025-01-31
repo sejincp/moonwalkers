@@ -29,7 +29,7 @@ export default function NavBar({ user, setUser }) {
         {user ? (
           <>
             <NavLink to="/moonwalks" end>
-              Community
+              Moonwalks
             </NavLink>
             &nbsp;
             <NavLink to="/moonwalks/new">Add Moonwalk</NavLink>

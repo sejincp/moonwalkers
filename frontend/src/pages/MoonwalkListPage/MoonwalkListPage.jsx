@@ -25,7 +25,7 @@ export default function MoonwalkListPage({user}) {
 
   return (
     <>
-      <h2>Community (Moonwalk List)</h2>
+      <h2 className="title">Moonwalks</h2>
       <section className="moonwalk-item-container">
         {moonwalks.map((moonwalk) => (
           <MoonwalkItem

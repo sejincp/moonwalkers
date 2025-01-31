@@ -43,9 +43,9 @@ export default function MoonwalkItem({
 
   return (
     <article>
-      <h5>
+      <h4>
         🌝 {moonwalk.user.name} made {moonwalk.distance} Moonwalks
-      </h5>
+      </h4>
       {location.pathname !== '/' && <div className={hideComments ? 'hidden' : ''}>
       <p>
         <strong>Description:</strong> {moonwalk.description}
@@ -57,8 +57,8 @@ export default function MoonwalkItem({
 
         {user._id === moonwalk.user._id && <button onClick={() => handleDelete()}>🗑️ Delete Moonwalk</button>}
         <hr />
-        <section>
-          <h2>Comments</h2>
+        <section className="comment">
+          <h5>Comments</h5>
           <CommentForm handleAddComment={handleAddComment}/>
           {moonwalk.comments.map((comment) => (
             <article key={comment._id}>

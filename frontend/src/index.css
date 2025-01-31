@@ -11,6 +11,11 @@
 
   color: #f2f2f2;
   background-color: rgb(32, 32, 32);
+  background-image: url(./assets/second-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
 }
 
 body {
@@ -22,8 +27,11 @@ a {
   text-decoration: none;
 }
 
+hr {
+  color: #8bff5d;
+}
+
 button {
-  display: block;
   width: 16rem;
   border: 0.05rem solid #8bff5d;
   border-radius: 0.8vmin;
@@ -35,11 +43,11 @@ button {
   color: #333;
   transition: all 0.2s ease-in;
   cursor: pointer;
-  margin: 1.2rem 0 1.2rem 0;
+  margin: 1.6rem auto;
 }
 
 button:hover {
-  background-color: #222;
+  background-color: #22222275;
   color: #8bff5d;
   border: 0.05rem solid #8bff5d;
 }
@@ -51,17 +59,18 @@ button:disabled {
 form {
   display: grid;
   gap: 1.2vmin;
-  padding: 4vmin;
+  padding: 1rem;
   border-radius: 1vmin;
+  width: 400px;
+  text-align: center;
 }
 
 input,
 select,
 textarea {
-  padding: 0.7vmin;
-  font-size: 2vmin;
-  border: 0.3vmin solid #1a1a1a;
+  font-size: 1.2rem;
   border-radius: 0.5vmin;
+  padding: 0.4rem;
 }
 
 form > button:last-child {
@@ -69,8 +78,11 @@ form > button:last-child {
 }
 
 label {
-  font-size: 2vmin;
-  font-weight: bold;
+  font-size: 1rem;
+}
+
+.title {
+  margin-top: 4rem;
 }
 
 .error-message {

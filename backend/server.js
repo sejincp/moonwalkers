@@ -22,11 +22,12 @@ app.use(require('./middleware/checkToken'));
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
 
+// All moonwalk routes will start with /api/moonwalks
+app.use('/api/moonwalks', require('./routes/moonwalks'));
+
 // All routers below will have all routes protected
 app.use(require('./middleware/ensureLoggedIn'));
 
-// All moonwalk routes will start with /api/moonwalks
-app.use('/api/moonwalks', require('./routes/moonwalks'));
 
 // Use a "catch-all" route to deliver the frontend's production index.html
 app.get('*', function (req, res) {

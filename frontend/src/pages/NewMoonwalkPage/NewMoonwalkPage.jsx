@@ -29,7 +29,7 @@ export default function NewMoonwalkPage() {
 
   return (
     <>
-      <h2>Add New Moonwalk</h2>
+      <h2 className="title">Add New Moonwalk</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <label>Total Steps</label>
         <input

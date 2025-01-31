@@ -30,27 +30,29 @@ export default function LogInPage({ setUser }) {
 
   return (
     <>
-      <h2>Log In!</h2>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">LOG IN</button>
-      </form>
-      <p className="error-message">&nbsp;{errorMsg}</p>
+      <div className="page-container">
+        <h2 className="title">Log In</h2>
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">LOG IN</button>
+        </form>
+        <p className="error-message">&nbsp;{errorMsg}</p>
+      </div>
     </>
   );
 }

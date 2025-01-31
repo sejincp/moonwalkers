@@ -37,6 +37,7 @@
 
 .NavBar .nav-logo {
   width: 18rem;
+  cursor:pointer;
 }
 
 .NavBar .nav-logo-container a:hover {
