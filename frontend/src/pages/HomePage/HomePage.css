@@ -31,3 +31,9 @@ section {
   margin-top: 4rem;
   margin-bottom: 24rem;
 }
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
