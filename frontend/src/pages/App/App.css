@@ -1,6 +1,7 @@
 .App {
-  display: grid;
-  grid-template-rows: auto auto;
+  display : flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 #main-section {
@@ -8,4 +9,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }

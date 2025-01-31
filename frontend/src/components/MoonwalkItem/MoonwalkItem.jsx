@@ -43,9 +43,10 @@ export default function MoonwalkItem({
 
   return (
     <article>
-      <h4>
-        🌝 {moonwalk.user.name} made {moonwalk.steps} Moonwalks
-      </h4>
+      <h5>
+        🌝 {moonwalk.user.name} made {moonwalk.distance} Moonwalks
+      </h5>
+      {location.pathname !== '/' && <div className={hideComments ? 'hidden' : ''}>
       <p>
         <strong>Description:</strong> {moonwalk.description}
       </p>
@@ -54,7 +55,6 @@ export default function MoonwalkItem({
         {new Date(moonwalk.createdAt).toLocaleDateString()}
       </p>
 
-      {location.pathname !== '/' && <div className={hideComments ? 'hidden' : ''}>
         {user._id === moonwalk.user._id && <button onClick={() => handleDelete()}>🗑️ Delete Moonwalk</button>}
         <hr />
         <section>

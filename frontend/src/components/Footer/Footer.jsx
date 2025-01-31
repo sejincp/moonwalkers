@@ -1,9 +1,8 @@
 import { NavLink, Link, useNavigate } from 'react-router';
-import { useEffect } from 'react';
 import { logOut } from '../../services/authService';
-import './NavBar.css';
+import './Footer.css';
 
-export default function NavBar({ user, setUser }) {
+export default function Footerf({ user, setUser }) {
   const navigate = useNavigate();
 
   function handleLogOut() {
@@ -13,7 +12,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className="NavBar">
+    <nav className="Footerf">
       <NavLink to="/">Where are we?</NavLink>
       &nbsp;
       {user ? (

@@ -1,10 +1,18 @@
-.moonwalk-item-container {
-  display: grid;
-  gap: 1rem;
+section {
+  text-align: center;
 }
 
-.moonwalk-item-container > article {
-  border: 0.5vmin dashed rebeccapurple;
-  padding: 2vmin;
-  border-radius: 0.5vmin;
+.moonwalk-item-home-container {
+  display: grid;
+  gap: 1rem;
+  width: 70vw;
+}
+
+.moonwalk-item-home-container > article {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8vmin;
+  border: 1px solid #8BFF5D;
 }
