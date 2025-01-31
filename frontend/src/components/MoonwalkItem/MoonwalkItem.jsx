@@ -67,7 +67,7 @@ export default function MoonwalkItem({
                 ${new Date(comment.createdAt).toLocaleDateString()}`}
                 </p>
               <p>{comment.text}</p>
-              {user._id === moonwalk.user._id && <button onClick={() => handleDelete()}>🗑️ Delete comment</button>}
+              {/* {user._id === moonwalk.user._id && <button onClick={() => handleDelete()}>🗑️ Delete comment</button>} */}
             </article>
           ))}
           {!moonwalk.comments.length && <p>There are no comments.</p>}
